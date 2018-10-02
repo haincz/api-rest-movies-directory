@@ -14,12 +14,12 @@ GET /api/movies:
 Should fetch list of all movies already present in application database.
 
 
-POST /comments:
+POST /api/comments:
 
 Request body should contain ID of movie already present in database, and comment text body.
 Comment should be saved to application database and returned in request response.
 
-GET /comments:
+GET /api/comments:
 
 Should fetch list of all comments present in application database.
 Should allow filtering comments by associated movie, by passing its ID.
