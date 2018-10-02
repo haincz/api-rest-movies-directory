@@ -46,11 +46,11 @@ function addCommnent (data, callback) {
 
 function getCommnentsByFilmId (id, callback) {
 
-	Commnent.find({film_id:id}).exec(function(err, commnents){
+	Commnent.find({film_id:id}).exec(function(err, comments){
       if (err){
         callback(err);
       } else {
-        callback(null, commnents);
+        callback(null, comments);
       }
   });	
 

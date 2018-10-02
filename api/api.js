@@ -1,5 +1,5 @@
 const movies = require("../movies");
-const commnents = require("../commnents");
+const comments = require("../comments");
 const express = require("express");
 
 const router = express.Router();
@@ -31,24 +31,24 @@ router.get('/movies/:id',  (req, res) => {
 
 });
 
-router.get('/commnents', (req, res) => {
-	commnents.commnentsList((err, commnents) => {
-		res.json(commnents);
+router.get('/comments', (req, res) => {
+	comments.commentsList((err, comments) => {
+		res.json(comments);
 	});
 });
 
-router.post('/commnents', (req, res) => {
+router.post('/comments', (req, res) => {
 
-	commnents.addCommnent(req.body, (err, data) => {
+	comments.addCommnent(req.body, (err, data) => {
 		res.json(data);
 	});
 	
 });
 
-router.get('/movies/commnents/:id', (req, res) => {
+router.get('/movies/comments/:id', (req, res) => {
 
-	commnents.getCommnentsByFilmId(req.params.id, (err, commnents) => {
-		res.json(commnents);
+	comments.getCommnentsByFilmId(req.params.id, (err, comments) => {
+		res.json(comments);
 	});
 
 });
