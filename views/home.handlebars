@@ -1,0 +1,12 @@
+<div class="search-film">
+
+	<h2>{{ title }}</h2>
+	{{#if movies}}
+	<ul>
+		{{#each movies}}
+		<li data-id="{{id}}"><a href="/api/movies/{{_id}}">{{Title}}</a></li>
+		{{/each}}
+	</ul>
+	{{/if}}
+
+</div>
