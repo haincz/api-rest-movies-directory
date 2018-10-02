@@ -97,5 +97,39 @@ should contain header: Content-Type: application/json
 
 fetch movie detail by movie id in application database.
 
+Method: GET /api/comments
+
+should contain header: Content-Type: application/json
+
+fetch list of all comments already present in application database.
+
+Method: POST /api/comments
+
+Request body should contain ID of movie in string, already present in database, author in String and comment text body as a String.
+
+Example of request body:
+
+{
+	"film_id":"String",
+	"author": "String",
+	"commenntContent":"String"
+}
+
+Example of request body succes:
+
+{
+	"film_id":"5bb12b78fb6fc01d131d7509",
+	"author": "Joseph Cucumber",
+	"commenntContent":"Etiam venenatis iaculis ullamcorper. In hac habitasse platea dictumst. In ipsum tellus, sodales vitae porttitor et, vestibulum vel nisi. Cras feugiat ex libero, et imperdiet leo rutrum volutpat. Sed gravida nibh turpis, nec semper metus ornare mattis. Nam laoreet malesuada feugiat. Ut tincidunt leo sed nulla aliquam, quis efficitur quam ullamcorper. Integer vestibulum lacinia ex nec consectetur. Vestibulum eget tristique lorem, in cursus turpis. Duis quis tincidunt purus, ut posuere diam. Mauris convallis massa nec leo vestibulum malesuada. Proin imperdiet magna tempus felis placerat dignissim. Pellentesque sed accumsan metus, eu mattis tortor. Proin a augue viverra tortor gravida scelerisque. Praesent sodales ac purus vitae efficitur."
+}
+
+Method: GET /api/movies/comments/id
+
+should contain header: Content-Type: application/json
+
+fetch comments by associated movie.
+
+
+
 
 
