@@ -1,4 +1,4 @@
-# Demo: https://stormy-mesa-43337.herokuapp.com/
+<h2>Demo: https://stormy-mesa-43337.herokuapp.com/</h2>
 
 # api-rest-movies-directory
 simple REST API - a basic movie database interacting with external API
