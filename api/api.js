@@ -32,7 +32,7 @@ router.get('/movies/:id',  (req, res) => {
 });
 
 router.get('/comments', (req, res) => {
-	comments.commentsList((err, comments) => {
+	comments.commnentsList ((err, comments) => {
 		res.json(comments);
 	});
 });
