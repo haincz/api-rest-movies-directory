@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const request = require("request");
 
-const DB_USER = "";
-const DB_PASS = "";
+const DB_USER = "moviescomentsapi";
+const DB_PASS = "qwe123";
 
 mongoose.Promise = global.Promise;
 mongoose.connect(`mongodb://${DB_USER}:${DB_PASS}@ds215563.mlab.com:15563/movies_and_comments_db`);
@@ -41,7 +41,7 @@ var Film = mongoose.model("Film", schema);
 //return list of movies in JSON format form database
 function moviesList (callback) {
 	
-  Film.find({}).exec(function(err, movies){
+  Film.find({}).exec( (err, movies) => {
       if (err){
         callback(err);
       } else {
@@ -57,7 +57,7 @@ function addMovie (data, cb) {
   var dataToDb = JSON.parse(data);
   var movie = new Film(dataToDb);
 
-  movie.save(function(err, dataToSave){
+  movie.save( (err, dataToSave) => {
 
     if(err){
       cb (err)
@@ -72,7 +72,7 @@ function addMovie (data, cb) {
 //searching movies in database by ID
 function getFilmById(id, cb) {
 
-  Film.findById(id).exec(function(err, data){
+  Film.findById(id).exec( (err, data) => {
 
     if (err){
       cb(err);
@@ -89,7 +89,7 @@ function getFilmById(id, cb) {
 function findMovieByTitle(title, cb) {
 
 
-	Film.find({"Title":new RegExp(title + '.*', "ig")}).exec(function(err,movie){
+	Film.find({"Title":new RegExp(title + '.*', "ig")}).exec( (err,movie) => {
 
     if (movie.length === 0) {
       cb(movie.length)
@@ -105,14 +105,14 @@ function findMovieByTitle(title, cb) {
 //sending it on POST method or geting movies data form external API 
 function checkDataBase(title, callback){
 
-    findMovieByTitle(title,  function(movie){
+    findMovieByTitle(title,  (movie) => {
 
       if (movie === 0){
         var yourApiKey = "7d4422f4";
 
           request.get({
             url: 'http://www.omdbapi.com/?t=' + title + '&apikey=' + yourApiKey,
-            }, function (error, response, body) {
+            }, (error, response, body) => {
               if (error || response.statusCode !== 200) {
                 return callback(error || {statusCode: response.statusCode});
             }
@@ -124,7 +124,7 @@ function checkDataBase(title, callback){
                 callback({"Title": "Movie Title does not exist", "Response": "False"})
             } else {
 
-              addMovie(body, function(err, dataToSave){
+              addMovie(body, (err, dataToSave) => {
                   if (err){
                     error: "data not Save"
                   } else {
