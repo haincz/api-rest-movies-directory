@@ -82,3 +82,13 @@ DataBase is working on MongoDB. Aplication is using Moongose driver and uses Mla
  2. Run Npm Install
 
  3. Create your database on MongoDb or use Mlab. The Collection names should be "commnents" for commnents API and "film" fo Movie API
+ 
+ 
+
+	<h1>How to Install</h1>
+		<ol>
+			<li>Clone repository from <a href="https://github.com/haincz/api-rest-movies-directory">GitHub</a></li>
+			<li>Run Npm Install</li>
+			<li>Create your database on MongoDb or use <a href="https://mlab.com/">Mlab</a>. The Collection names should be "commnents" for commnents API and "film" fo Movie API</li> 
+		</ol>
+
