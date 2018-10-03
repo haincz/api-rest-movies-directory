@@ -32,7 +32,11 @@ router.get('/movies/:id',  (req, res) => {
 });
 
 router.get('/comments', (req, res) => {
+<<<<<<< HEAD
 	comments.commnentsList((err, comments) => {
+=======
+	comments.commnentsList ((err, comments) => {
+>>>>>>> d9448610db7d6981d08957d8d9589d51519d40ff
 		res.json(comments);
 	});
 });
