@@ -41,7 +41,7 @@ var Film = mongoose.model("Film", schema);
 //return list of movies in JSON format form database
 function moviesList (callback) {
 	
-  Film.find({}).exec( (err, movies) => {
+  Film.find({}).exec((err, movies) => {
       if (err){
         callback(err);
       } else {
@@ -57,7 +57,7 @@ function addMovie (data, cb) {
   var dataToDb = JSON.parse(data);
   var movie = new Film(dataToDb);
 
-  movie.save( (err, dataToSave) => {
+  movie.save((err, dataToSave) => {
 
     if(err){
       cb (err)
@@ -72,7 +72,7 @@ function addMovie (data, cb) {
 //searching movies in database by ID
 function getFilmById(id, cb) {
 
-  Film.findById(id).exec( (err, data) => {
+  Film.findById(id).exec((err, data) => {
 
     if (err){
       cb(err);
@@ -89,7 +89,7 @@ function getFilmById(id, cb) {
 function findMovieByTitle(title, cb) {
 
 
-	Film.find({"Title":new RegExp(title + '.*', "ig")}).exec( (err,movie) => {
+	Film.find({"Title":new RegExp(title + '.*', "ig")}).exec((err,movie) => {
 
     if (movie.length === 0) {
       cb(movie.length)
@@ -105,7 +105,7 @@ function findMovieByTitle(title, cb) {
 //sending it on POST method or geting movies data form external API 
 function checkDataBase(title, callback){
 
-    findMovieByTitle(title,  (movie) => {
+    findMovieByTitle(title, (movie) => {
 
       if (movie === 0){
         var yourApiKey = "7d4422f4";

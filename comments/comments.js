@@ -31,10 +31,10 @@ function commnentsList (callback) {
 function addCommnent (data, callback) {
 
 	var commnent = new Commnent(data);
-
+	
 	commnent.save((err, dataToSave) => {
 
-	    if(err){
+	    if(err || data.hasOwnProperty("film_id") === false){
 	      callback (err)
 	    } else {
 	      callback(null, dataToSave);
