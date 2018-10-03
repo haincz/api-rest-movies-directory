@@ -6,21 +6,36 @@
 simple REST API - a basic movie database interacting with external API
 
 # Assumptions
-POST /api/movies:
+<h3>POST /api/movies:</h3>
+			<p>
+				<ul>
+					<li>Request body should contain only movie title, and its presence should be validated. </li>
+					<li>Based on passed title, other movie details should be fetched from http://www.omdbapi.com/- and saved to application database.</li>
+					<li>Request response should include full movie object, along with all data fetched from external API.</li>
+				</ul>
+			</p>
 
-Request body should contain only movie title, and its presence should be validated. Based on passed title, other movie details should be fetched from http://www.omdbapi.com/- and saved to application database. Request response should include full movie object, along with all data fetched from external API.
+<h3>GET /api/movies:</h3>
+			<p>
+				<ul>
+					<li>Should fetch list of all movies already present in application database.</li>
+				</ul>
+			</p>
 
-GET /api/movies:
+<h3>POST /api/comments:</h3>
 
-Should fetch list of all movies already present in application database.
-
-POST /api/comments:
-
-Request body should contain ID of movie already present in database, and comment text body. Comment should be saved to application database and returned in request response.
-
-GET /api/comments:
-
-Should fetch list of all comments present in application database. Should allow filtering comments by associated movie, by passing its ID.
+  <p>
+		<ul>
+					<li>Request body should contain ID of movie already present in database, and comment text body. </li>
+					<li>Comment should be saved to application database and returned in request response.</li>
+				</ul>
+			</p>
+		<h3>GET /api/comments:</h3>
+			<p>
+				<ul>
+					<li>Should fetch list of all comments present in application database. Should allow filtering comments by associated movie, by passing its ID.</li>
+				</ul>
+			</p>
 
 # Endpoints
 Method: POST /api/movies
