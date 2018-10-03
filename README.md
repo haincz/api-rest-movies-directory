@@ -71,3 +71,11 @@ Example of request body succes:
 
 # DataBase
 DataBase is working on MongoDB. Aplication is using Moongose driver and uses Mlab
+
+# How to Install
+
+ 1. Clone repository from GitHub
+
+ 2. Run Npm Install
+
+ 3. Create your database on MongoDb or use Mlab. The Collection names should be "commnents" for commnents API and "film" fo Movie API
