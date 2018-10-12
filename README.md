@@ -89,7 +89,7 @@ simple REST API - a basic movie database interacting with external API
 						{ "film_id":"5bb12b78fb6fc01d131d7509", "author": "Joseph Cucumber", "commenntContent":"Etiam venenatis iaculis ullamcorper. In hac habitasse platea dictumst. In ipsum tellus, sodales vitae porttitor et, vestibulum vel nisi. Cras feugiat ex libero, et imperdiet leo rutrum volutpat. Sed gravida nibh turpis, nec semper metus ornare mattis. Nam laoreet malesuada feugiat. Ut tincidunt leo sed nulla aliquam, quis efficitur quam ullamcorper. Integer vestibulum lacinia ex nec consectetur. Vestibulum eget tristique lorem, in cursus turpis. Duis quis tincidunt purus, ut posuere diam. Mauris convallis massa nec leo vestibulum malesuada. Proin imperdiet magna tempus felis placerat dignissim. Pellentesque sed accumsan metus, eu mattis tortor. Proin a augue viverra tortor gravida scelerisque. Praesent sodales ac purus vitae efficitur." }
 					</code>
 				</p>
-			<h3>Method: GET /api/movies/comments/id</h3>
+			<h3>Method: GET /api/moviecomments/id</h3>
 				<p>fetch comments by associated movie.<p>
 				<p>should contain header: Content-Type: application/json</p>
 				<p><strong>Example of request body succes:</strong></p>
