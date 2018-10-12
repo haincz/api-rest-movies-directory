@@ -2,7 +2,8 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const bodyParser = require("body-parser");
 const movies = require("./movies");
-const api = require("./api")
+const commentsRouts = require("./api/comments");
+const moviesRouts = require("./api/movies");
 const app = express();
 
 
@@ -12,7 +13,8 @@ app.set('view engine', 'handlebars');
 app.use(express.static("public"));
 app.use(bodyParser.json());
 
-app.use("/api", api);
+app.use("/api/comments", commentsRouts);
+app.use("/api/movies", moviesRouts);
 
 app.get('/', (req, res) => {
   	
