@@ -16,9 +16,9 @@ app.use(bodyParser.json());
 app.use("/api/comments", commentsRouts);
 app.use("/api/movies", moviesRouts);
 
+
 app.get('/', (req, res) => {
   	
-
   	movies.moviesList((err, movies) => {
 			
 			res.render('home', {
@@ -28,10 +28,28 @@ app.get('/', (req, res) => {
 
 	  	});
   	
-  	
   	});
 
-	
+});
+
+app.use((req, res, next) => {
+
+	const error = new Error("Not Found");
+	error.status = 404;
+	next(error);
+
+});
+
+
+app.use((error, req, res, next) => {
+
+	res.status(error.status || 500);
+	res.json({
+		error: {
+			message: error.message
+		}
+	});
+
 });
 
 

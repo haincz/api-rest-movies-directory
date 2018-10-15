@@ -30,7 +30,14 @@ router.get('/:id',  (req, res) => {
    
 	movies.getFilmById(req.params.id, (data) => {
 
+		if (data.name === "CastError"){
+			res.status(404).send({error: {message:"Not Found"}})
+		
+		} else {
+
 		res.json(data);
+
+		};	
 
 	});
 
