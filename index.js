@@ -5,7 +5,17 @@ const movies = require("./movies");
 const commentsRouts = require("./api/comments");
 const moviesRouts = require("./api/movies");
 const app = express();
+const mongoose = require("mongoose");
 
+
+mongoose.connect(
+  "mongodb://" +
+    process.env.MONGO_DB_USER + ":" + process.env.MONGO_DB_PASS + 
+    "@ds215563.mlab.com:15563/movies_and_comments_db",
+  {
+    useMongoClient: true
+  }
+);
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
@@ -51,10 +61,6 @@ app.use((error, req, res, next) => {
 	});
 
 });
-
-
-
-
 
 
 app.listen(process.env.PORT || 8080, () => {

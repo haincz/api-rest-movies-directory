@@ -1,13 +1,6 @@
 const mongoose = require("mongoose");
 const request = require("request");
 
-const DB_USER = "";
-const DB_PASS = "";
-
-mongoose.Promise = global.Promise;
-mongoose.connect(`mongodb://${DB_USER}:${DB_PASS}@ds215563.mlab.com:15563/movies_and_comments_db`);
-
-
 var schema = new mongoose.Schema ({
   "Title": String,
   "Year": String,

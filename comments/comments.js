@@ -1,9 +1,5 @@
 const mongoose = require("mongoose");
 
-const DB_USER = "";
-const DB_PASS = "";
-mongoose.connect(`mongodb://${DB_USER}:${DB_PASS}@ds215563.mlab.com:15563/movies_and_comments_db`);
-
 var schema = new mongoose.Schema ({
 
 	"film_id": String,

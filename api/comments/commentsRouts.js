@@ -14,12 +14,12 @@ router.post('/', (req, res) => {
 
 
 	//in future here should be checking is ID exist in dataBase (use: movies.getFilmById)
-	if(req.body.hasOwnProperty("film_id") === false || req.body.film_id !== String) {
+	if(req.body.hasOwnProperty("film_id") !== true) {
 		res.status(404).send({"status":"False. Correct Film_id is required"})
 	} else {
-	comments.addCommnent(req.body, (err, data) => {
-		res.json(data);
-	});
+		comments.addCommnent(req.body, (err, data) => {
+			res.json(data);
+		});
 	
 	};
 
