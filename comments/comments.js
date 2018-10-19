@@ -1,14 +1,6 @@
 const mongoose = require("mongoose");
+const Commnent = require("./schemaModel.js");
 
-var schema = new mongoose.Schema ({
-
-	"film_id": String,
-	"author": String,
-	"commenntContent": String
-
-});
-
-var Commnent = mongoose.model("Commnent", schema);
 
 function commnentsList (callback) {
 	
