@@ -22,7 +22,7 @@ function addCommnent (data, callback) {
 	
 	commnent.save((err, dataToSave) => {
 
-	    if(err || data.hasOwnProperty("film_id") === false){
+	    if(err){
 	      callback (err)
 	    } else {
 	      callback(null, dataToSave);

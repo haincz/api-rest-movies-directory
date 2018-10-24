@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 
 var schema = new mongoose.Schema ({
 
-	"film_id": String,
-	"author": String,
-	"commenntContent": String
+	"film_id": {type: String, required: true},
+	"author": {type: String, required: true},
+	"commenntContent": {type: String, required: true}
 
 });
 

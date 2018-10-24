@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const request = require("request");
-const Film = require("./schemaModel.js")
+const Film = require("./schemaModel")
 
 
 //return list of movies in JSON format form database
@@ -54,7 +54,7 @@ function getFilmById(id, cb) {
 function findMovieByTitle(title, cb) {
 
 
-	Film.find({"Title":new RegExp(title + '.*', "ig")}).exec((err,movie) => {
+	Film.find({"Title":new RegExp(title + '.*', "ig")}).exec((err, movie) => {
 
     if (movie.length === 0) {
       cb(movie.length)

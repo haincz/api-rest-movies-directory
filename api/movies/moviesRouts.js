@@ -8,14 +8,16 @@ router.get('/',  (req, res) => {
   
 	movies.moviesList((err, movies) => {
 		res.json(movies);
-	})
+	});
 
 });
 
 router.post('/',  (req, res) => {
 
+
+
 	if(req.body.hasOwnProperty("Title") === false) {
-		res.status(404).send({"status":"False. Title property is required"})
+		res.status(400).send({"status":"False. Title property is required"})
 	} else {
 
 	movies.checkDataBase(req.body.Title, (data) => {
