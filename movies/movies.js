@@ -39,6 +39,7 @@ function getFilmById(id, cb) {
 
   Film.findById(id).exec((err, data) => {
 
+   
     if (err){
       cb(err);
     } else {
@@ -72,7 +73,7 @@ function checkDataBase(title, callback){
 
     findMovieByTitle(title, (movie) => {
 
-      if (movie === 0){
+      if (movie === 0) {
         
           request.get({
             url: 'http://www.omdbapi.com/?t=' + title + '&apikey=' + process.env.YOUR_API_KEY,
