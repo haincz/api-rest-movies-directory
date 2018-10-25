@@ -73,10 +73,9 @@ function checkDataBase(title, callback){
     findMovieByTitle(title, (movie) => {
 
       if (movie === 0){
-        var yourApiKey = "7d4422f4";
-
+        
           request.get({
-            url: 'http://www.omdbapi.com/?t=' + title + '&apikey=' + yourApiKey,
+            url: 'http://www.omdbapi.com/?t=' + title + '&apikey=' + process.env.YOUR_API_KEY,
             }, (error, response, body) => {
               if (error || response.statusCode !== 200) {
                 return callback(error || {statusCode: response.statusCode});
