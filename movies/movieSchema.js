@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-var schema = new mongoose.Schema ({
+var movieSchema = new mongoose.Schema ({
   "Title": {type: String, required: true},
   "Year": String,
     "Rated": String,
@@ -28,4 +28,4 @@ var schema = new mongoose.Schema ({
     "Response": String
 });
 
-module.exports = mongoose.model("Film", schema);
+module.exports = mongoose.model("Film", movieSchema);

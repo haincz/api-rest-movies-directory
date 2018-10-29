@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
-const Commnent = require("./schemaModel.js");
+const Commnent = require("./commentsSchema.js");
 
 
 function commnentsList (callback) {
 	
-  Commnent.find({}).exec((err, commnents) => {
+  Commnent.find({}).populate('film_id', 'Title').exec((err, commnents) => {
       if (err){
         callback(err);
       } else {
@@ -34,7 +34,7 @@ function addCommnent (data, callback) {
 
 function getCommnentsByFilmId (id, callback) {
 
-	Commnent.find({film_id:id}).exec((err, comments) => {
+	Commnent.find({film_id:id}).populate('film_id', 'Title').exec((err, comments) => {
       if (err){
         callback(err);
       } else {

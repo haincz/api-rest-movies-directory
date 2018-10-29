@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const request = require("request");
-const Film = require("./schemaModel")
+const Film = require("./movieSchema.js")
 
 
 //return list of movies in JSON format form database
