@@ -18,16 +18,14 @@ function commnentsList (callback) {
 
 function addCommnent (data, callback) {
 
-	var commnent = new Commnent(data);
+	let commnent = new Commnent(data);
 	
 	commnent.save((err, dataToSave) => {
-
 	    if(err){
 	      callback (err)
 	    } else {
 	      callback(null, dataToSave);
 	    }
-
 	});
 
 }
@@ -35,12 +33,12 @@ function addCommnent (data, callback) {
 function getCommnentsByFilmId (id, callback) {
 
 	Commnent.find({film_id:id}).populate('film_id', 'Title').exec((err, comments) => {
-      if (err){
-        callback(err);
-      } else {
-        callback(null, comments);
-      }
-  });	
+    	if (err){
+        	callback(err);
+    	} else {
+    		callback(null, comments);
+    	}
+  	});	
 
 };
 

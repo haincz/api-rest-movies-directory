@@ -14,33 +14,24 @@ router.get('/',  (req, res) => {
 
 router.post('/',  (req, res) => {
 
-
-
 	if(req.body.hasOwnProperty("Title") === false) {
 		res.status(400).send({"status":"False. Title property is required"})
 	} else {
-
-	movies.checkDataBase(req.body.Title, (data) => {
-		res.json(data)
-	});
-
+		movies.checkDataBase(req.body.Title, (data) => {
+			res.json(data)
+		});
 	};
 
 });
 
 router.get('/:id',  (req, res) => {
    
-	movies.getFilmById(req.params.id, (data) => {
-
-		if (data.name === "CastError"){
+	movies.getFilmById(req.params.id, (err, data) => {
+		if (err){
 			res.status(404).send({error: {message:"Not Found"}})
-		
 		} else {
-
-		res.json(data);
-
+			res.json(data);
 		};	
-
 	});
 
 });

@@ -31,11 +31,9 @@ app.get('/', (req, res) => {
   	
   	movies.moviesList((err, movies) => {
 			
-			res.render('home', {
-
+		res.render('home', {
 	  		title: "Movies Database",
 	  		movies: err? [] : movies
-
 	  	});
   	
   	});

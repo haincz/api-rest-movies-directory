@@ -19,8 +19,8 @@ function moviesList (callback) {
 
 function addMovie (data, cb) {
 
-  var dataToDb = JSON.parse(data);
-  var movie = new Film(dataToDb);
+  let dataToDb = JSON.parse(data);
+  let movie = new Film(dataToDb);
 
   movie.save((err, dataToSave) => {
 
@@ -43,7 +43,7 @@ function getFilmById(id, cb) {
     if (err){
       cb(err);
     } else {
-      cb(data);
+      cb(null, data);
     }
 
   });
@@ -82,8 +82,7 @@ function checkDataBase(title, callback){
                 return callback(error || {statusCode: response.statusCode});
             }
              
-
-             var dataToDb = JSON.parse(body);
+             let dataToDb = JSON.parse(body);
 
              if(dataToDb.Response === "False") {
                 callback({"Title": "Movie Title does not exist", "Response": "False"})
@@ -95,7 +94,6 @@ function checkDataBase(title, callback){
                   } else {
                     callback(dataToSave);
                   }
-
               });  
             }});
 
