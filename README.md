@@ -1,7 +1,3 @@
-<h3>Demo: https://stormy-mesa-43337.herokuapp.com/</h3>
-<h3>Api Documentation: https://stormy-mesa-43337.herokuapp.com/api-documentation</h3>
-<h3>How to Instal: https://stormy-mesa-43337.herokuapp.com/how-to-install </h3>
-
 # api-rest-movies-directory
 simple REST API - a basic movie database interacting with external API
 
