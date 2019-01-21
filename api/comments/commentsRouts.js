@@ -5,9 +5,14 @@ const router = express.Router();
 
 
 router.get('/', (req, res) => {
-	comments.commnentsList((err, comments) => {
-		res.json(comments);
-	});
+
+	comments.commnentsList()
+			.then((comments) => res.json(comments))
+
+
+	// comments.commnentsList((err, comments) => {
+	// 	res.json(comments);
+	// });
 });
 
 router.post('/', (req, res) => {
@@ -16,13 +21,19 @@ router.post('/', (req, res) => {
 	// if(req.body.hasOwnProperty("film_id") !== true) {
 	// 	res.status(404).send({"status":"False. Correct film_id is required"})
 	// } else {
-		comments.addCommnent(req.body, (err, data) => {
-			if (err){
-				res.status(400).send(err)
-			} else {
-			res.json(data);
-			}		
-		});
+
+		comments.addCommnent(req.body)
+				.then((data) => res.json(data))
+				.catch((error) => res.status(400).send(error));
+
+
+		// comments.addCommnent(req.body, (err, data) => {
+		// 	if (err){
+		// 		res.status(400).send(err)
+		// 	} else {
+		// 	res.json(data);
+		// 	}		
+		// });
 	
 	// };
 
@@ -30,18 +41,33 @@ router.post('/', (req, res) => {
 
 router.get('/moviecomments/:id', (req, res) => {
 
-	comments.getCommnentsByFilmId(req.params.id, (err, comments) => {
-
-		if (err) {
-			res.status(404).send({"error":"Not Found"});
+	function send(data) {
+		if (data instanceof Error){
+			res.status(404).send(error)
+		} else if (!data.length){
+			res.status(404).send({"Error":"Not Found"})
 		} else {
-			if (!comments.length){
-				res.status(404).send({"error":"Not Found"});
-			} else {
-				res.json(comments);
-			};
-		};
-	});
+			res.json(data)
+		}
+	}
+
+	comments.getCommnentsByFilmId(req.params.id)
+			.then(send)
+			.catch(send)
+
+
+
+
+	// 	if (err) {
+	// 		res.status(404).send({"error":"Not Found"});
+	// 	} else {
+	// 		if (!comments.length){
+	// 			res.status(404).send({"error":"Not Found"});
+	// 		} else {
+	// 			res.json(comments);
+	// 		};
+	// 	};
+	// });
 
 });
 
