@@ -29,15 +29,14 @@ app.use("/api/movies", moviesRouts);
 
 app.get('/', (req, res) => {
   	
-  	movies.moviesList((err, movies) => {
-			
-		res.render('home', {
-	  		title: "Movies Database",
-	  		movies: err? [] : movies
-	  	});
-  	
-  	});
-
+	movies.moviesList()
+		.then((data) => {
+			res.render('home', 
+			{
+				title: "Movies Database",
+	  			movies: data
+	  		})
+	  	})
 });
 
 app.use((req, res, next) => {
