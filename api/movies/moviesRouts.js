@@ -8,7 +8,7 @@ router.get('/',  (req, res) => {
   
 	movies.moviesList()
 		.then((movies) => res.json(movies))
-		.catch((error) => res.status(404).send(error))
+		.catch((error) => res.status(404).send(error));
 
 	// movies.moviesList((err, movies) => {
 	// 	res.json(movies);
@@ -33,23 +33,21 @@ router.post('/',  (req, res) => {
 
 });
 
-router.get('/:id',  (req, res) => {
+router.get('/best-ratings', (req, res) => {
+	
+	movies.getBestRatings()
+		.then((data) => res.json(data))
+		.catch((error) => res.status(404).send(error));
+
+});
+
+router.get('/:id', (req, res) => {
    	
 	movies.getFilmById(req.params.id)
 		.then((data) => res.json(data))
-		.catch((error) => res.status(404).send({error: {message:"Not Found"}}))
-
-
-
-
-	// movies.getFilmById(req.params.id, (err, data) => {
-	// 	if (err){
-	// 		res.status(404).send({error: {message:"Not Found"}})
-	// 	} else {
-	// 		res.json(data);
-	// 	};	
-	// });
+		.catch((error) => res.status(404).send({error: {message:"Not Found"}}));
 
 });
+
 
 module.exports = router;

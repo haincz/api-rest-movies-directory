@@ -17,6 +17,17 @@ function moviesList () {
 
 }
 
+function getBestRatings (){
+  
+  let def = Q.defer();
+
+  Film.find({"imdbRating":{"$ne":"N/A"}}).sort({"imdbRating": -1}).limit(10).exec()
+    .then((movies)=> def.resolve(movies))
+    .catch((err) => def.reject(err));
+
+  return def.promise;
+
+}
 
 function addMovie (data) {
 
@@ -111,7 +122,7 @@ function checkDataBase(title){
               url: 'http://www.omdbapi.com/?t=' + title + '&apikey=' + process.env.YOUR_API_KEY,
               }, (error, response, body) => {
                 if (error || response.statusCode !== 200) {
-                  return def.reject(err);
+                  return def.reject(error);
               }
                
                let dataToDb = JSON.parse(body);
@@ -181,5 +192,6 @@ function checkDataBase(title){
 module.exports = {
 	moviesList: moviesList,
 	getFilmById: getFilmById,
-	checkDataBase:checkDataBase
+  checkDataBase:checkDataBase,
+  getBestRatings: getBestRatings
 };
