@@ -62,6 +62,9 @@ simple REST API - a basic movie database interacting with external API
 		<h3>Method: GET /api/movies/best-ratings</h3>
 			<p>fetch 10 best movies already present in application database sort by imdbRating.</p>
 			<p>should contain header: Content-Type: application/json</p>
+		<h3>Method: GET /api/movies/rewarded</h3>
+			<p>fetch 10 most rewarded movies already present in application database.</p>
+			<p>should contain header: Content-Type: application/json</p>
 		<h3>Method: GET /api/movies/id</h3>
 			<p>fetch movie detail by movie id in application database.</p>
 			<p>should contain header: Content-Type: application/json</p>
