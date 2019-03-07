@@ -37,9 +37,17 @@ router.get('/best-ratings', (req, res) => {
 	
 	movies.getBestRatings()
 		.then((data) => res.json(data))
-		.catch((error) => res.status(404).send(error));
+		.catch((error) => res.status(500).send(error));
 
 });
+
+router.get('/rewarded', (req, res) => {
+
+	movies.getRewarded()
+		.then((data)=> res.json(data))
+		.catch((err)=> res.json(500).send(err));
+
+})
 
 router.get('/:id', (req, res) => {
    	

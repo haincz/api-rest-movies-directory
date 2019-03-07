@@ -29,6 +29,17 @@ function getBestRatings (){
 
 }
 
+function getRewarded (){
+
+  let def = Q.defer();
+
+    Film.find({"Awards":{"$ne":"N/A"}}).sort({"Awards":-1}).limit(10).exec()
+      .then((movies)=>def.resolve(movies))
+      .catch((err) => def.reject(err));
+
+  return def.promise;
+}
+
 function addMovie (data) {
 
   let dataToDb = JSON.parse(data);
@@ -193,5 +204,6 @@ module.exports = {
 	moviesList: moviesList,
 	getFilmById: getFilmById,
   checkDataBase:checkDataBase,
-  getBestRatings: getBestRatings
+  getBestRatings: getBestRatings,
+  getRewarded:getRewarded
 };
