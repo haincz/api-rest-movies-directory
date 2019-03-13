@@ -21,7 +21,7 @@ function getBestRatings (){
   
   let def = Q.defer();
 
-  Film.find({"imdbRating":{"$ne":"N/A"}}).sort({"imdbRating": -1}).limit(10).exec()
+  Film.find({"Metascore":{"$ne":"N/A"}}).sort({"imdbRating": -1}).limit(10).exec()
     .then((movies)=> def.resolve(movies))
     .catch((err) => def.reject(err));
 
